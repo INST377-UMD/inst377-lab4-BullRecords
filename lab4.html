@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <title><- Ayo what's that tab</title>
+    <style>
+      body {
+        background-color: bisque;
+      }
+      .contentRow {
+        display: flex;
+      }
+      .contentBox {
+        background-color: rgb(145, 145, 182);
+        border: 6px solid rgb(238, 236, 236);
+        padding: 5px;
+        border-radius: 15px;
+        margin: 5px;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="header">Lab 4</h1>
+    <div class="contentArea">
+      <!-- Row 1 -->
+      <div class="contentRow">
+        <div class="contentBox">
+          <form name="alertForm" onsubmit="alertMe(); return false;">
+            <label for="name">Name: </label>
+            <input type="text" id="name" required />
+            <input type="submit" value="Alert Me!" />
+          </form>
+        </div>
+        <div class="contentBox">
+          <button onclick="changeColor()">Change Color</button>
+        </div>
+      </div>
+
+      <br />
+
+      <!-- Row 2 -->
+      <div class="contentRow">
+        <div class="contentBox">
+          <form name="validateForm" onsubmit="validator(); return false;">
+            <label for="text">Text Tester: </label>
+            <input type="text" id="text" />
+            <input type="submit" value="Validate Text" />
+          </form>
+        </div>
+        <div class="contentBox">
+          <button onclick="addText(); return false;">Add Text</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function alertMe() {
+        alert("Hello " + document.alertForm.name.value + "!");
+      }
+
+      function validator() {
+        var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+        if (validation.test(document.validateForm.text.value)) {
+          alert("How about... Nah");
+        }
+      }
+
+      function changeColor() {
+        if (document.body.style.backgroundColor == "red") {
+          document.body.style.backgroundColor = "bisque";
+        } else {
+          document.body.style.backgroundColor = "red";
+        }
+      }
+
+      function addText() {
+        document.getElementById("header").innerHTML = "Lab 4 Add Text";
+      }
+    </script>
+  </body>
+</html>
